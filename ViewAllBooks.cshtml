@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BookBank.Models.Book>
+
+<h2>Book List</h2>
+
+<p>
+    <a asp-action="AddBook">Add New Book</a>
+</p>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Id</th>
+        <th>Book Name</th>
+        <th>Genre</th>
+        <th>Availability</th>
+        @* <th>Action</th> *@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.BookName</td>
+            <td>@item.Genre</td>
+            <td>
+                @(item.AvailabilityStatus ? "Available" : "Not Available")
+            </td>
+            <td>
+                <a asp-action="RemoveBook" asp-route-bookId="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

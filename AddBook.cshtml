@@ -1,0 +1,31 @@
+﻿@model BookBank.Models.Book
+
+<h2>Add Book</h2>
+
+<form asp-action="AddBook" method="post">
+    <div>
+        <label>Book Name</label><br />
+        <input asp-for="BookName" />
+        <span asp-validation-for="BookName" style="color:red"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Genre</label><br />
+        <input asp-for="Genre" />
+        <span asp-validation-for="Genre" style="color:red"></span>
+    </div>
+
+    <br />
+
+    <div>
+        <label>Availability</label>
+        <input asp-for="AvailabilityStatus" type="checkbox" />
+    </div>
+
+    <br />
+
+    <button type="submit">Save</button>
+    <a asp-action="ViewAllBooks">Cancel</a>
+</form>
